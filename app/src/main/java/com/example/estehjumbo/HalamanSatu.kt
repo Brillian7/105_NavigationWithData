@@ -87,6 +87,7 @@ fun HalamanSatu(
                     }
                 )
                 Button(modifier = Modifier.weight(1f),
+                    //the button is enabled when the user makes a selection
                     enabled = textJmlBeli.isNotEmpty(),
                     onClick = { onConfirmButtonClicked(textJmlBeli.toInt()) }
                 ) {
@@ -107,12 +108,13 @@ fun HalamanSatu(
                 verticalAlignment = Alignment.Bottom
             ){
                 OutlinedButton(modifier = Modifier.weight(1f),
-                    onClick = { onCancelButtonClicked}) {
+                    onClick = onCancelButtonClicked) {
+                    Text(stringResource(R.string.cancel))
                 }
                 Button(modifier = Modifier.weight(1f),
                     enabled = textJmlBeli.isNotEmpty(),
-                    onClick = { onNextButtonClicked
-                    }) {
+                    onClick = onNextButtonClicked
+                    ) {
                     Text(stringResource(R.string.next))
                     
                 }

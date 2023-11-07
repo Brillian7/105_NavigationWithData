@@ -82,7 +82,7 @@ fun HalamanHome(
         ){
             Button(
                 modifier = Modifier.weight(1f),
-                onClick = { onNextButtonClicked }
+                onClick = onNextButtonClicked
             ) {
                 Text(stringResource(R.string.next))
             }
