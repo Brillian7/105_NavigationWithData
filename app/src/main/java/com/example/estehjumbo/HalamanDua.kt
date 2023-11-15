@@ -59,6 +59,19 @@ fun HalamanDua(
             Column(
                 verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
             ){
+                Row(
+                    modifier = Modifier
+                        .weight(1f, false)
+                        .padding(dimensionResource(R.dimen.padding_medium))
+                ){
+                    Button(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = {}
+                    ){
+                        Text(stringResource(R.string.send))
+                    }
+
+                }
                 Button(
                     modifier =  Modifier.fillMaxWidth(),
                     onClick =  onCancelButtonClicked
