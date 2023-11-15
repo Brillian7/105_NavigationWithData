@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
-import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -72,11 +72,11 @@ fun HalamanForm(
                     .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
                 horizontalArrangement = Arrangement.Center,
             ) {
-                Button(onClick = onCancelButtonClicked) {
+                OutlinedButton(onClick = onCancelButtonClicked) {
                     Text(stringResource(R.string.cancel))
                 }
-                Button(onClick = { onSubmitBUttonClicked(listData) }) {
-                    Text(text = stringResource(id = R.string.button_submit))
+                OutlinedButton(onClick = { onSubmitBUttonClicked(listData) }) {
+                    Text(text = stringResource(id = R.string.next))
                 }
 
             }
