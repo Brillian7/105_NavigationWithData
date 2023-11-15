@@ -29,7 +29,8 @@ import com.example.estehjumbo.data.SumberData.flavors
 enum class PengelolaHalaman {
     Home,
     Rasa,
-    Summary
+    Summary,
+    Form
 }
 
 @OptIn(ExperimentalMaterial3Api::class)
@@ -79,7 +80,19 @@ fun EsJumboApp(
             modifier = Modifier.padding(innerPadding)
         ){
             composable(route = PengelolaHalaman.Home.name) {
-                HalamanHome (onNextButtonClicked = {navController.navigate(PengelolaHalaman.Rasa.name)})
+                HalamanHome (onNextButtonClicked = {navController.navigate(PengelolaHalaman.Form.name)})
+            }
+            composable(PengelolaHalaman.Form.name){
+                HalamanForm(
+                    onSubmitBUttonClicked = {
+                        viewModel.setContact(it)
+                        navController.navigate(PengelolaHalaman.Rasa.name)},
+                    onCancelButtonClicked = {
+                        cancelOrderAndNavigateToHome(
+                            viewModel,
+                            navController
+                        )
+                    })
             }
             composable(route = PengelolaHalaman.Rasa.name){
                 val context = LocalContext.current
@@ -94,7 +107,10 @@ fun EsJumboApp(
             composable(route = PengelolaHalaman.Summary.name) {
                 HalamanDua(
                     orderUIState = uiState,
-                    onCancelButtonClicked = { cancelOrderAndNavigateToRasa(navController) }
+                    onCancelButtonClicked = { cancelOrderAndNavigateToRasa(navController) },
+                    onClickBackButton = {
+                        navController.popBackStack(PengelolaHalaman.Rasa.name,false)
+                    }
                     //onSendButtonClicked = {subject: String, summary: String -> }
                 )
             }
@@ -102,6 +118,7 @@ fun EsJumboApp(
 
     }
 }
+
 
 fun cancelOrderAndNavigateToRasa(navController: NavHostController) {
     navController.popBackStack(PengelolaHalaman.Rasa.name,inclusive = false)
@@ -115,4 +132,10 @@ fun cancelOrderAndNavigateToHome(
     viewModel.resetOrder()
     navController.popBackStack(PengelolaHalaman.Home.name,inclusive = false)
 }
-
+private fun cancelOrderAndNavigateToForm(
+    viewModel: OrderViewModel,
+    navController: NavHostController
+){
+    viewModel.resetForm()
+    navController.popBackStack(PengelolaHalaman.Form.name, inclusive = false)
+}
