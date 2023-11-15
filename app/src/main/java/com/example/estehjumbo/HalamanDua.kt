@@ -9,6 +9,7 @@ import androidx.compose.foundation.layout.height
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material3.Button
 import androidx.compose.material3.Divider
+import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
@@ -23,7 +24,7 @@ import com.example.estehjumbo.ui.komponen.FormatLabelHarga
 fun HalamanDua(
     orderUIState: OrderUIState,
     onCancelButtonClicked: () -> Unit,
-    //onSendButtonClicked: (String, String) -> Unit,
+    onClickBackButton: () -> Unit,
     modifier: Modifier = Modifier
 ){
     val items = listOf(
@@ -34,11 +35,25 @@ fun HalamanDua(
         modifier = modifier,
         verticalArrangement = Arrangement.SpaceBetween
     ){
+
         Column(
             modifier = Modifier.padding(dimensionResource(R.dimen.padding_medium)),
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
 
-        ){
+        ){ Text(text = "Nama")
+            Text(text = orderUIState.name)
+            Divider()
+
+
+            Text(text = "Alamat")
+            Text(text = orderUIState.alamat)
+            Divider()
+
+
+            Text(text = "No Telephone")
+            Text(text = orderUIState.noTelp)
+            Divider()
+
             items.forEach{item ->
                 Column {
                     Text(item.first.uppercase())
@@ -51,34 +66,26 @@ fun HalamanDua(
                 modifier = Modifier.align(Alignment.End)
             )
         }
-        Row(
-            modifier = Modifier
-                .weight(1f, false)
-                .padding(dimensionResource(R.dimen.padding_medium))
+        Column(
+            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
         ){
-            Column(
-                verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
+            Row(
+                modifier = Modifier
+                    .weight(1f, false)
+                    .padding(dimensionResource(R.dimen.padding_medium))
             ){
-                Row(
-                    modifier = Modifier
-                        .weight(1f, false)
-                        .padding(dimensionResource(R.dimen.padding_medium))
-                ){
-                    Button(
-                        modifier = Modifier.fillMaxWidth(),
-                        onClick = {}
-                    ){
-                        Text(stringResource(R.string.send))
-                    }
-
-                }
                 Button(
-                    modifier =  Modifier.fillMaxWidth(),
-                    onClick =  onCancelButtonClicked
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = {}
+                ) {
+                    Text(stringResource(R.string.send))
+                }
+                OutlinedButton(
+                    modifier = Modifier.fillMaxWidth(),
+                    onClick = onCancelButtonClicked
                 ) {
                     Text(stringResource(R.string.cancel))
                 }
-
             }
         }
     }
