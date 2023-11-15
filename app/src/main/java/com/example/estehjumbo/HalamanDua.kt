@@ -69,22 +69,26 @@ fun HalamanDua(
         Column(
             verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
         ){
-            Row(
+            Row (
                 modifier = Modifier
                     .weight(1f, false)
                     .padding(dimensionResource(R.dimen.padding_medium))
-            ){
-                Button(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = {}
+            ) {
+                Column (
+                    verticalArrangement =
+                    Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
                 ) {
-                    Text(stringResource(R.string.send))
-                }
-                OutlinedButton(
-                    modifier = Modifier.fillMaxWidth(),
-                    onClick = onCancelButtonClicked
-                ) {
-                    Text(stringResource(R.string.lanjut))
+                    Button(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = { }) {
+                        Text(stringResource(R.string.send))
+                    }
+                    OutlinedButton(
+                        modifier = Modifier.fillMaxWidth(),
+                        onClick = onCancelButtonClicked
+                    ) {
+                        Text(stringResource(R.string.cancel))
+                    }
                 }
             }
         }

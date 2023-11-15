@@ -8,8 +8,8 @@ import androidx.compose.foundation.layout.Spacer
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.material3.ElevatedButton
 import androidx.compose.material3.ExperimentalMaterial3Api
-import androidx.compose.material3.OutlinedButton
 import androidx.compose.material3.OutlinedTextField
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -48,10 +48,13 @@ fun HalamanForm(
         ) {
             OutlinedTextField(
                 value = nama, onValueChange = { nama = it },
-                label = { Text(text = stringResource(id = R.string.nama)) })
+                label = { Text(text = stringResource(id = R.string.nama)) },
+                )
+            Spacer(modifier = Modifier.padding(15.dp))
             OutlinedTextField(
                 value = noHp, onValueChange = { noHp = it },
                 label = { Text(text = stringResource(id = R.string.noHp)) })
+            Spacer(modifier = Modifier.padding(15.dp))
             OutlinedTextField(
                 value = alamat, onValueChange = { alamat = it },
                 label = {
@@ -59,26 +62,25 @@ fun HalamanForm(
                 })
             Spacer(modifier = Modifier.padding(2.dp))
         }
-        Column(
+        Row (
             modifier = Modifier
-                .weight(1f, false)
-                .padding(dimensionResource(R.dimen.padding_medium)),
-            verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small))
-
+                .fillMaxWidth()
+                .padding(dimensionResource(R.dimen.padding_medium))
+                .weight(1f, false),
+            horizontalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_medium)),
+            verticalAlignment = Alignment.Bottom
         ) {
-            Row(
-                modifier = Modifier
-                    .fillMaxWidth()
-                    .padding(horizontal = dimensionResource(R.dimen.padding_medium)),
-                horizontalArrangement = Arrangement.Center,
+            ElevatedButton(
+                modifier = Modifier.weight(1f),
+                onClick = onCancelButtonClicked
             ) {
-                OutlinedButton(onClick = onCancelButtonClicked) {
-                    Text(stringResource(R.string.cancel))
-                }
-                OutlinedButton(onClick = { onSubmitBUttonClicked(listData) }) {
-                    Text(text = stringResource(id = R.string.next))
-                }
-
+                Text(stringResource(R.string.cancel))
+            }
+            ElevatedButton(
+                modifier = Modifier.weight(1f),
+                onClick = {onSubmitBUttonClicked(listData)}
+            ) {
+                Text(stringResource(R.string.lanjut))
             }
         }
     }
