@@ -3,10 +3,10 @@
     <string name="nama">nama</string>
     <string name="noHp">noHp</string>
     <string name="alamat">alamat</string>
-    <string name="button_submit">submit</string>
+    <string name="lanjut">Selanjutnya</string>
     <string name="back_button">Kembali</string>.
     <string name="confirm">Konfirmasi</string>.
-    <string name="next">Selanjutnya</string>.
+    <string name="next">Lanjut</string>.
     <string name="cancel">Batal</string>.
     <string name="vanilla">Vanila</string>.
     <string name="Lemon">Lemon</string>.
