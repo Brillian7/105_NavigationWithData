@@ -84,7 +84,7 @@ fun HalamanDua(
                     modifier = Modifier.fillMaxWidth(),
                     onClick = onCancelButtonClicked
                 ) {
-                    Text(stringResource(R.string.cancel))
+                    Text(stringResource(R.string.lanjut))
                 }
             }
         }
