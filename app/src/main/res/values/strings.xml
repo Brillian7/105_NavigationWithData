@@ -3,7 +3,7 @@
     <string name="nama">nama</string>
     <string name="noHp">noHp</string>
     <string name="alamat">alamat</string>
-    <string name="btn_submit">submit</string>
+    <string name="button_submit">submit</string>
     <string name="back_button">Kembali</string>.
     <string name="confirm">Konfirmasi</string>.
     <string name="next">Lanjut</string>.
